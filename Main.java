@@ -1,28 +1,26 @@
-import java.util.Scanner;
 public class Main {
+
     public static void main(String[] args) {
-        int mat,fizik,kimya,turkce,tarih,muzik;
-        Scanner inp = new Scanner(System.in);
-        System.out.print("Matemetik notunuz: ");
-        mat= inp.nextInt();
-        System.out.print("Fizik notunuz: ");
-        fizik= inp.nextInt();
-        System.out.print("Kimya notunuz: ");
-        kimya= inp.nextInt();
-        System.out.print("Türkçe notunuz: ");
-        turkce= inp.nextInt();
-        System.out.print("Tarih notunuz: ");
-        tarih= inp.nextInt();
-        System.out.print("Müzik notunuz: ");
-        muzik= inp.nextInt();
+      Teacher t1=new Teacher("Mahmut","123456789","TRH");
+      Teacher t2=new Teacher("Graham Bell","2347890","FZK");
+      Teacher t3=new Teacher("Külyutmaz","23479990","BİO");
 
-        int toplam= mat + fizik + kimya + turkce+ tarih +muzik ;
-        double sonuc = toplam / 6.0;
-        System.out.println("Ortalamanız: " + sonuc);
+      Course tarih=new Course("Tarih","101", "TRH");
+      tarih.addTeacher(t1);
+      Course fizik=new Course("Fizik","102", "FZK");
+      fizik.addTeacher(t2);
+      Course biyo=new Course("Biyoloji","101", "BİO");
+      biyo.addTeacher(t3);
 
-        boolean durum= sonuc >= 60;
-        String str = durum ? "Geçti" : "Kaldı";
-        System.out.println(str);
+      Student s1=new Student("İnek Şaban","123","4",tarih,fizik,biyo);
+              s1.addBulkExamNote(100,200,50);
+              s1.isPass();
+        Student s2=new Student("Güdek Necmi","773","4",tarih,fizik,biyo);
+        s2.addBulkExamNote(50,30,70);
+        s1.isPass();
+
+
+
 
     }
 }
